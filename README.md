@@ -13,10 +13,10 @@ I got tired of copying and pasting, so I made commands out of them.
 
 * converting keys to values and pretty print
 
-        ./akri.py keys my_bucket \
-        | head -1000 \
-        | ./akri.py vals my_bucket \
-        | jq -M .
+         ./akri.py keys my_bucket \
+         | head -1000 \
+         | ./akri.py vals my_bucket \
+         | jq -M .
 
 
 * deleting
