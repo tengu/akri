@@ -13,29 +13,29 @@ I got tired of copying and pasting, so I made commands out of them.
 
 * converting keys to values and pretty print
 
-	./akri.py keys my_bucket \
-	| head -1000 \
-	| ./akri.py vals my_bucket \
-	| jq -M .
+        ./akri.py keys my_bucket \
+        | head -1000 \
+        | ./akri.py vals my_bucket \
+        | jq -M .
 
 
 * deleting
 
-	./akri.py keys my_bucket \
-	| grep deleteme \
-	| ./akri.py delete my_bucket --dryrun=True
+        ./akri.py keys my_bucket \
+        | grep deleteme \
+        | ./akri.py delete my_bucket --dryrun=True
 
 ### bucket props
 
-	./akri.py bucket_props my_bucket \
-	| jq -M -c '[.props.last_write_wins, .props.allow_mult]'
+        ./akri.py bucket_props my_bucket \
+        | jq -M -c '[.props.last_write_wins, .props.allow_mult]'
 
 ### conflict resolution policy
 
 * query for it
 
         ./akri.py conflict_resolution_policy my_bucket --host=127.0.0.1
-        http://127.0.0.1:8098/buckets/yoyo	     most_recent	pick most recent sibling. 
+        http://127.0.0.1:8098/buckets/yoyo           most_recent        pick most recent sibling. 
 
 * what are my options again?
 
