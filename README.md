@@ -53,10 +53,10 @@ I got tired of copying and pasting, so I made commands out of them.
 
 * how do I set the conflict resolution policy?
 
-       ./akri.py conflict_resolution_policy_update my_bucket most_recent
+          ./akri.py conflict_resolution_policy_update my_bucket most_recent
 
 ### todo
 
-* key range
+* key range query
 * enumerate buckets without walking the entire key space
 * layered operation modes: output http request data, show equivalent curl command, actually do it.
