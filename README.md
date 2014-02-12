@@ -39,12 +39,17 @@ I got tired of copying and pasting, so I made commands out of them.
 
 * what are my options again?
 
-         ./akri.py conflict_resolution_policy_doc
-         policy          last_write_wins allow_mult      description
-         siblings        False           True            let application handle siblings.
-         most_recent     False           False           pick most recent sibling. default.
-         stomp           True            False           just clobber.
-         undefined       True            True            do not use.
+           ./akri.py conflict_resolution_policy_doc
+
+           policy          last_write_wins allow_mult      description
+
+           siblings        False           True            let application handle siblings.
+
+           most_recent     False           False           pick most recent sibling. default.
+
+           stomp           True            False           just clobber.
+
+           undefined       True            True            do not use.
 
 * how do I set the conflict resolution policy?
 
