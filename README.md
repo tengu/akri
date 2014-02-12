@@ -53,7 +53,7 @@ I got tired of copying and pasting, so I made commands out of them.
 
 * how do I set the conflict resolution policy?
 
-          ./akri.py conflict_resolution_policy_update my_bucket most_recent
+           ./akri.py conflict_resolution_policy_update my_bucket most_recent
 
 ### todo
 
