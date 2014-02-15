@@ -46,13 +46,26 @@ def keys(bucket, host='localhost', port=8098):
             print key
     p.wait()
 
+
 @baker.command
-def key_range():
+def key_range(bucket, start='!', end='~', host='localhost', port=8098):
+    """Stream keys in specified range.
+    Caution: default start/end will result in (pretty much) entire bucket keys being streamed.
+
+    wrapper for
+    curl -s 'http://{host}:8098/buckets/{bucket}/index/$key/{start}/{end}?keys=stream' | jq -M -r .keys[]
     """
-    curl -s 'http://{host}:8098/buckets/{bucket}/index/$key/{start}/{end} 
-    note: must be url-encoded.
-    """
-    IMPLEMENT_ME
+
+    # todo: merge with keys call. 
+    # todo: gracefully handle sigpipe (all commands)
+    url="http://{host}:8098/buckets/{bucket}/index/$key/{start}/{end}?keys=stream".format(**locals())
+    print url
+    p=Popen("curl -s '{url}'".format(url=url), shell=True, stdout=PIPE)
+    for line in p.stdout.readlines():
+        for key in json.loads(line.strip())['keys']:
+            print key
+    assert p.wait()==0
+
 
 @baker.command
 def vals(bucket, host='localhost', port=8098, verbose=False):
